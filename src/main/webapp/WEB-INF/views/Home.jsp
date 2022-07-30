@@ -28,11 +28,11 @@
 				<li class="nav-item dropdown"><a
 					class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
 					role="button" data-toggle="dropdown" aria-haspopup="true"
-					aria-expanded="false"> House </a>
+					aria-expanded="false"> Payment </a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<a class="dropdown-item" href="House.jsp">Add House Detail</a> <a
+						<a class="dropdown-item" href="House.jsp">Create Account</a> <a
 							class="dropdown-item" href="ViewHouseDetailController">View
-							House Detail</a>
+							Account Detail</a>
 
 					</div></li>
 
