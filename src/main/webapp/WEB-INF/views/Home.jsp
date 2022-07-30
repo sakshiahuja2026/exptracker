@@ -28,11 +28,11 @@
 				<li class="nav-item dropdown"><a
 					class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
 					role="button" data-toggle="dropdown" aria-haspopup="true"
-					aria-expanded="false"> Payment </a>
+					aria-expanded="false"> Income </a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<a class="dropdown-item" href="House.jsp">Create Account</a> <a
-							class="dropdown-item" href="ViewHouseDetailController">View
-							Account Detail</a>
+						<a class="dropdown-item" href="addincome">Add Income</a> <a
+							class="dropdown-item" href="listincome">View
+							Income</a>
 
 					</div></li>
 
@@ -41,21 +41,21 @@
 				<li class="nav-item dropdown"><a
 					class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
 					role="button" data-toggle="dropdown" aria-haspopup="true"
-					aria-expanded="false"> Family </a>
+					aria-expanded="false"> Expense </a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<a class="dropdown-item" href="AddFam.jsp">Add Family Member</a> <a
+						<a class="dropdown-item" href="AddFam.jsp">Add Expense</a> <a
 							class="dropdown-item" href="ViewFamMemberController">View
-							Family Member</a>
+							Expense</a>
 
 					</div></li>
 				<li class="nav-item dropdown"><a
 					class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
 					role="button" data-toggle="dropdown" aria-haspopup="true"
-					aria-expanded="false"> Instruction </a>
+					aria-expanded="false"> Category </a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<a class="dropdown-item" href="AddInstruction.jsp">Add
-							Instruction</a> <a class="dropdown-item"
-							href="ViewInstructionController">View Instruction</a>
+						<a class="dropdown-item" href="addcategory">Add Category
+						</a> <a class="dropdown-item"
+							href="listcategory">View Category</a>
 
 					</div></li>
 

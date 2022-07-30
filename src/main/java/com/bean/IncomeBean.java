@@ -1,6 +1,6 @@
 package com.bean;
 
-public class AccountBean {
+public class IncomeBean {
 	private Integer accountId;
 	private String accountType;
 	private Integer amount;

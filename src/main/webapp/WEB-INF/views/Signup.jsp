@@ -13,8 +13,8 @@ FirstName : <input type="text" name="firstName" /><br><br>
 LastName : <input type="text" name="lastName" /><br><br>
 Email :<input type="text" name="email" /><br><br> 
 Password : <input type="text" name="password" /><br><br>
-Gender:<input type="radio" name="gender"/>Female
-<input type="radio" name="gender"/>Male<br>
+Gender:<input type="radio" value="female" name="gender"/>Female
+<input type="radio" value="male" name="gender"/>Male<br>
 <input type="submit" value="Signup" />
 </form>
 </body>
