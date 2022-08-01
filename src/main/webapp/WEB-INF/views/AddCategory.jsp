@@ -16,7 +16,7 @@
 			
 		
 		<input type="hidden" name="userId" value="<%=user.getUserId()%>">
-		<input type="button" name="Add">
+		
 		<br> <input type="submit" value="setcategory" />
 		
 	</form>

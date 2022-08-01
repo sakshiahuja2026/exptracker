@@ -20,17 +20,19 @@ public class CategoryController {
 
 	@Autowired
 	CategoryDao categoryDao;
-	
+
 	@GetMapping("/addcategory")
 	public String addcategory() {
 		return "AddCategory";
 	}
+
 	@PostMapping("/savecategory")
 	public String addCategory(CategoryBean categoryBean) {
-		
+
 		categoryDao.addCategory(categoryBean);
 		return "Home";
 	}
+
 	@GetMapping("/listcategory")
 	public String listCategory(HttpSession session, Model model) {
 		UserBean user = (UserBean) session.getAttribute("user");

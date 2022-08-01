@@ -1,7 +1,5 @@
 package com.controller;
 
-
-
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -20,18 +18,18 @@ import com.dao.IncomeDao;
 public class IncomeController {
 	@Autowired
 	IncomeDao incomeDao;
-	
+
 	@GetMapping("/addincome")
 	public String addincome() {
 		return "AddIncome";
 	}
-	
+
 	@PostMapping("/saveincome")
 	public String addIncome(IncomeBean incomeBean) {
 		incomeDao.addIncome(incomeBean);
 		return "Home";
 	}
-	
+
 	@GetMapping("/listincome")
 	public String listIncome(HttpSession session, Model model) {
 		UserBean user = (UserBean) session.getAttribute("user");
@@ -39,4 +37,4 @@ public class IncomeController {
 		model.addAttribute("income", income);
 		return "ListIncome";
 	}
-	}
+}

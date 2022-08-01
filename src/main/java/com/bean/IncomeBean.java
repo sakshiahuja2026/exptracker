@@ -5,6 +5,24 @@ public class IncomeBean {
 	private String accountType;
 	private Integer amount;
 	private Integer userId;
+	private Integer cardNo;
+	private String upiId;
+	
+	public Integer getCardNo() {
+		return cardNo;
+	}
+
+	public void setCardNo(Integer cardNo) {
+		this.cardNo = cardNo;
+	}
+
+	public String getUpiId() {
+		return upiId;
+	}
+
+	public void setUpiId(String upiId) {
+		this.upiId = upiId;
+	}
 
 	public Integer getAccountId() {
 		return accountId;

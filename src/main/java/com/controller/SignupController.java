@@ -20,28 +20,27 @@ import com.dao.UserDao;
 
 @Controller
 public class SignupController {
-@Autowired
-UserDao userDao;
+	@Autowired
+	UserDao userDao;
 
-/*
- * @GetMapping("/signup") public String signUp() {
- * System.out.println("signin done"); return"Signup"; }
- */	
-	@RequestMapping(value="/signup", method=RequestMethod.GET)
-	public String signUp(UserBean user,Model model) {
-		model.addAttribute(user);
-		return"Signup";
+	/*
+	 * @GetMapping("/signup") public String signUp() {
+	 * System.out.println("signin done"); return"Signup"; }
+	 */
+	@RequestMapping(value = "/signup", method = RequestMethod.GET)
+	public String signUp(UserBean user, Model model) {
+		model.addAttribute("user", user);
+		return "Signup";
 	}
-	
-	
+
 	/*
 	 * @PostMapping("/saveuser") public String saveUser(UserBean user) {
 	 * user.setUserType("customer"); userDao.addUser(user);
 	 * 
 	 * return"Login"; }
 	 */
-	
-	@RequestMapping(value="/saveuser" , method = RequestMethod.POST)
+
+	@RequestMapping(value = "/saveuser", method = RequestMethod.POST)
 	public String signUp(@ModelAttribute("user") @Valid UserBean user, BindingResult result, Model model) {
 		System.out.println("SaveUser called.....");
 		System.out.println(result);
@@ -49,37 +48,37 @@ UserDao userDao;
 			model.addAttribute("user", user);
 			return "Signup";
 		} else {
-			 user.setUserType("customer");
-			 userDao.addUser(user);
-			 model.addAttribute("msg","Signup done..");
-			 return "Login";
-			 		
+			user.setUserType("customer");
+			userDao.addUser(user);
+			model.addAttribute("msg", "Signup done..");
+			return "Login";
+
 		}
 	}
-	
+
 	@GetMapping("/login")
 	public String login() {
-	return"Login";	
+		return "Login";
 	}
-	
+
 	@PostMapping("/login")
-	public String authenticate(LoginBean login ,Model model, HttpSession session) {
+	public String authenticate(LoginBean login, Model model, HttpSession session) {
 		UserBean user = userDao.authenticate(login);
-		if(user == null) {
+		if (user == null) {
 			model.addAttribute("msg", "Invalid Crenditials!!!");
 			return "Login";
+		} else if (user.getUserType().contentEquals("customer")) {
+			session.setAttribute("user", user);
+			return "Home";
+		} else if (user.getUserType().contentEquals("admin")) {
+			session.setAttribute("user", user);
+			return "Dashboard";
+		} else {
+			model.addAttribute("msg", "Please Contact Admin");
+			return "Login";
 		}
-		 else if (user.getUserType().contentEquals("customer")) {
-				session.setAttribute("user", user);
-				return "Home";
-			} else if (user.getUserType().contentEquals("admin")) {
-				session.setAttribute("user", user);
-				return "Dashboard";
-			} else {
-				model.addAttribute("msg", "Please Contact Admin");
-				return "Login";
-			}
 	}
+
 	@GetMapping("/logout")
 	public String logout(HttpSession session) {
 		session.invalidate();

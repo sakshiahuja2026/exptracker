@@ -79,7 +79,7 @@ height: 100%;
               
  -->            
  <input type="submit" class="btn btn-primary btn-lg" value="Login"/>
- <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <a href="#!"
+ <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <a href="signup"
                 class="link-danger">Register</a></p>
           </div>
 

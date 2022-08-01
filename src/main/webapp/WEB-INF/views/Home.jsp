@@ -43,8 +43,8 @@
 					role="button" data-toggle="dropdown" aria-haspopup="true"
 					aria-expanded="false"> Expense </a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<a class="dropdown-item" href="AddFam.jsp">Add Expense</a> <a
-							class="dropdown-item" href="ViewFamMemberController">View
+						<a class="dropdown-item" href="addexpense">Add Expense</a> <a
+							class="dropdown-item" href="listexpense">View
 							Expense</a>
 
 					</div></li>

@@ -24,10 +24,10 @@ public class UserDao {
 		UserBean user = null;
 
 		try {
-		user = stmt.queryForObject("select * from signup where email = ? and password = ? ",
-				new BeanPropertyRowMapper<UserBean>(UserBean.class),
-				new Object[] { loginBean.getEmail(), loginBean.getPassword() });
-		}catch(Exception e) {
+			user = stmt.queryForObject("select * from signup where email = ? and password = ? ",
+					new BeanPropertyRowMapper<UserBean>(UserBean.class),
+					new Object[] { loginBean.getEmail(), loginBean.getPassword() });
+		} catch (Exception e) {
 			System.out.println("invalid email password");
 		}
 		return user;

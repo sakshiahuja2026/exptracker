@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@ taglib prefix="s" uri="http://www.springframework.org/tags/form"%>
     
 <!DOCTYPE html>
 <html>
@@ -8,14 +9,25 @@
 <title>SignUp</title>
 </head>
 <body>
-<form action="saveuser" method="post">
-FirstName : <input type="text" name="firstName" /><br><br>
-LastName : <input type="text" name="lastName" /><br><br>
-Email :<input type="text" name="email" /><br><br> 
-Password : <input type="text" name="password" /><br><br>
-Gender:<input type="radio" value="female" name="gender"/>Female
-<input type="radio" value="male" name="gender"/>Male<br>
-<input type="submit" value="Signup" />
-</form>
+
+<s:form action="saveuser" method="post" modelAttribute="user">
+	
+		FirstName: <s:input path="firstName" />
+		<s:errors path="firstName"></s:errors><br><br>
+		LastName: <s:input path="lastName" />
+		<s:errors path="lastName"></s:errors><br><br>	
+	Email : <s:input path="email" />
+		<s:errors path="email"></s:errors><br><br>
+		Password :<s:password path="password" />
+		<s:errors path="password"></s:errors><br><br>
+		Gender: Male <s:radiobutton path="gender" value="male" />
+				Female <s:radiobutton path="gender" value="female" /><br><br>
+	
+		
+		<input type="submit" value="Signup" />
+	</s:form>
+
+
+
 </body>
 </html>
