@@ -9,14 +9,15 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.bean.CategoryBean;
 import com.bean.ExpenseBean;
-import com.bean.IncomeBean;
+import com.bean.AmountBean;
 import com.bean.UserBean;
 import com.dao.CategoryDao;
 import com.dao.ExpenseDao;
-import com.dao.IncomeDao;
+import com.dao.AmountDao;
 
 @Controller
 public class ExpenseController {
@@ -28,15 +29,15 @@ public class ExpenseController {
 	CategoryDao categoryDao;
 	
 	@Autowired
-	IncomeDao incomeDao;
+	AmountDao amountDao;
 	
 	@GetMapping("/addexpense")
 	public String addexpense(HttpSession session, Model model) {
 		UserBean user = (UserBean) session.getAttribute("user");
 		List<CategoryBean> category = categoryDao.listCategory(user.getUserId());	
 		model.addAttribute("category", category);
-		List<IncomeBean> incomeType = incomeDao.listIncomeType(user.getUserId());	
-		model.addAttribute("incomeType", incomeType);
+		List<AmountBean> amountType = amountDao.listAmountType(user.getUserId());	
+		model.addAttribute("amountType", amountType);
 		return "AddExpense";
 	}
 	
@@ -53,5 +54,24 @@ public class ExpenseController {
 		model.addAttribute("expense", expense);
 		return "ListExpense";
 	}
+	@GetMapping("deleteexpense")
+	public String deleteexpense(@RequestParam("expenseId") int expenseId) {
+		expenseDao.deleteexpense(expenseId);
+	return "ListExpense";
+}
+	@GetMapping("/editexpense")
+	public String saveUpdateOfExpense(@RequestParam("expenseId") int expenseId,Model model) {
+		ExpenseBean expense= expenseDao.getExpenseById(expenseId);
+		System.out.println(expenseId);
+		model.addAttribute("expense", expense);
+		return "UpdateExpense";
+	}
 	
+	@PostMapping("/updateexpense")
+	public String updateExpense(ExpenseBean expenseBean) {
+		System.out.println(expenseBean.getDate());
+		System.out.println(expenseBean.getExpenseId());
+		expenseDao.updateexpense(expenseBean);
+		return "redirect:/ListExpense";
+	}
 }

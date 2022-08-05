@@ -5,19 +5,25 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>List Category</title>
+<title>View Profile</title>
 </head>
 <body>
-	<h2>List Category</h2>
+	<h2>Profile Images</h2>
 	<table border="1">
+
 		<tr>
-			<th>Category Name</th>
+			<th>Image</th>
+			<th>Action</th>
 		</tr>
-		<c:forEach items="${category}" var="c">
+
+		<c:forEach items="${profiles }" var="p">
 			<tr>
-				<td>${c.categoryName}</td>
+				<td><img src="${p.imgUrl}" height="200px" width="200px" /></td>
+				<td><a href="deleteprofile?profileId=${p.profileId}">Delete</a>
 			</tr>
+
 		</c:forEach>
 	</table>
+
 </body>
 </html>

@@ -12,20 +12,26 @@
 <table border="1">
 <tr>
 <th>Category</th>
+<th>Sub Category</th>
 <th>Date</th>
 <th>Time</th>
 <th>Description</th>
 <th>Amount</th>
 <th>Type Of Payment</th>
+<th>Action</th>
 </tr>
 <c:forEach items="${expense}" var="e">
 <tr>
 <td>${e.category}</td>
+<td>${e.subCategoryName}</td>
 <td>${e.date}</td>
 <td>${e.time}</td>
 <td>${e.description}</td>
 <td>${e.amount}</td>
 <td>${e.typeofpayment}</td>
+<td><a href="deleteexpense?expenseId=${e.expenseId}">Delete</a></td>
+<td><a href="editexpense?expenseId=${e.expenseId}">Edit</a></td>
+<input type="hidden" value="expenseId">
 
 </tr>
 </c:forEach>

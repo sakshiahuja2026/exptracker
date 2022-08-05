@@ -1,13 +1,13 @@
 package com.bean;
 
-public class IncomeBean {
+public class AmountBean {
 	private Integer accountId;
 	private String accountType;
 	private Integer amount;
 	private Integer userId;
 	private Integer cardNo;
 	private String upiId;
-	
+
 	public Integer getCardNo() {
 		return cardNo;
 	}

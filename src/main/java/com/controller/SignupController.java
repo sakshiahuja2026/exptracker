@@ -51,21 +51,23 @@ public class SignupController {
 			user.setUserType("customer");
 			userDao.addUser(user);
 			model.addAttribute("msg", "Signup done..");
-			return "Login";
+			return "redirect:/login";
 
 		}
 	}
 
 	@GetMapping("/login")
-	public String login() {
+	public String login(LoginBean login,Model model) {
+		model.addAttribute("login",login);
 		return "Login";
 	}
 
 	@PostMapping("/login")
-	public String authenticate(LoginBean login, Model model, HttpSession session) {
+	public String authenticate(@ModelAttribute("login") @Valid LoginBean login, BindingResult result, Model model, HttpSession session) {
 		UserBean user = userDao.authenticate(login);
-		if (user == null) {
-			model.addAttribute("msg", "Invalid Crenditials!!!");
+		System.out.println(result);
+		if (result.hasErrors()) {
+			model.addAttribute("login", login);
 			return "Login";
 		} else if (user.getUserType().contentEquals("customer")) {
 			session.setAttribute("user", user);

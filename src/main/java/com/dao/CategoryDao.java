@@ -8,7 +8,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import com.bean.CategoryBean;
-import com.bean.IncomeBean;
+import com.bean.AmountBean;
 
 @Repository
 public class CategoryDao {
@@ -21,7 +21,7 @@ public class CategoryDao {
 	}
 
 	public List<CategoryBean> listCategory(Integer userId) {
-		return stmt.query("select * from category where userId=?",
+		return stmt.query("select * from category where userId=? or userId=13",
 				new BeanPropertyRowMapper<CategoryBean>(CategoryBean.class), new Object[] { userId });
 	}
 }

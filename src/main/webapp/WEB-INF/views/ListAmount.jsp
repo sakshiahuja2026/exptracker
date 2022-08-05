@@ -5,17 +5,26 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>List Category</title>
+<title>View Amount</title>
 </head>
 <body>
-	<h2>List Category</h2>
+
+	<h2>View Amount</h2>
 	<table border="1">
 		<tr>
-			<th>Category Name</th>
+			<th>Account Type</th>
+			<th>Amount</th>
+			<th>User ID</th>
+			<th>Card No</th>
+			<th>Upi Id</th>
 		</tr>
-		<c:forEach items="${category}" var="c">
+		<c:forEach items="${amount}" var="i">
 			<tr>
-				<td>${c.categoryName}</td>
+				<td>${i.accountType}</td>
+				<td>${i.amount}</td>
+				<td>${i.userId}</td>
+				<td>${i.cardNo}</td>
+				<td>${i.upiId}</td>
 			</tr>
 		</c:forEach>
 	</table>

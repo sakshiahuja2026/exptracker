@@ -9,6 +9,24 @@ public class ExpenseBean {
 	private Integer amount;
 	private String typeofpayment;
 	private Integer userId;
+	private Integer subcategoryId;
+	private String subCategoryName;
+
+	public String getSubCategoryName() {
+		return subCategoryName;
+	}
+
+	public void setSubCategoryName(String subCategoryName) {
+		this.subCategoryName = subCategoryName;
+	}
+
+	public Integer getSubcategoryId() {
+		return subcategoryId;
+	}
+
+	public void setSubcategoryId(Integer subcategoryId) {
+		this.subcategoryId = subcategoryId;
+	}
 
 	public Integer getExpenseId() {
 		return expenseId;

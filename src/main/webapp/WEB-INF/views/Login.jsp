@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+    pageEncoding="ISO-8859-1" isELIgnored="false"%>
+     <%@ taglib prefix="s" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -39,27 +40,25 @@ height: 100%;
       </div>
       <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
        
-        <form action="login" method="post">
+        <s:form action="login" method="post" modelAttribute="login">
         
           <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
             <p class="lead fw-normal mb-0 me-3">Login</p>
             
-           
-           
           </div>
 
           <!-- Email input -->
           <div class="form-outline mb-4">
-            <input type="email" id="form3Example3" name="email" class="form-control form-control-lg"
-              placeholder="Enter a valid email address" />
-            <label class="form-label" name="email" for="form3Example3">Email address</label>
+          Email : <s:input  class="form-control form-control-lg" path="email" />
+		<s:errors path="email"></s:errors><br><br>
+           
           </div>
 
           <!-- Password input -->
           <div class="form-outline mb-3">
-            <input type="password" id="form3Example4" name="password" class="form-control form-control-lg"
-              placeholder="Enter password" />
-            <label class="form-label" name="password" for="form3Example4">Password</label>
+          Password :<s:password class="form-control form-control-lg" path="password" />
+		<s:errors path="password"></s:errors>
+           
           </div>
 
           <div class="d-flex justify-content-between align-items-center">
@@ -83,25 +82,13 @@ height: 100%;
                 class="link-danger">Register</a></p>
           </div>
 
-        </form>
+        </s:form>
       </div>
     </div>
-  </div>
-       <a href="#!" class="text-white me-4">
-        <i class="fab fa-facebook-f"></i>
-      </a>
-      <a href="#!" class="text-white me-4">
-        <i class="fab fa-twitter"></i>
-      </a>
-      <a href="#!" class="text-white me-4">
-        <i class="fab fa-google"></i>
-      </a>
-      <a href="#!" class="text-white">
-        <i class="fab fa-linkedin-in"></i>
-      </a>
+  
     </div>
     <!-- Right -->
-  </div>
+  
 </section>
 </body>
 </html>

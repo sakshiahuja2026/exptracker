@@ -5,19 +5,15 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>List Category</title>
+<title>Available Balance</title>
 </head>
 <body>
-	<h2>List Category</h2>
-	<table border="1">
-		<tr>
-			<th>Category Name</th>
-		</tr>
-		<c:forEach items="${category}" var="c">
-			<tr>
-				<td>${c.categoryName}</td>
-			</tr>
-		</c:forEach>
-	</table>
+	<h2>Total Income</h2>
+
+	<c:forEach items="${balance}" var="b">
+		
+			${b.amount}	
+	</c:forEach>
+	${b.totalbalance }
 </body>
 </html>
